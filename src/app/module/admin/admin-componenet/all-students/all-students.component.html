@@ -1,0 +1,22 @@
+<div class="card-container" fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+  <mat-card class="student-card" *ngFor="let s of students">
+    <mat-card-header style="background-color: #3f51b5;">
+      <mat-card-title style="color: white;">Name: <strong>{{s.name}}</strong></mat-card-title>
+      <mat-card-subtitle style="color: white;">Class: <strong>{{s.studentClass}}</strong></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="margin-top: 10px;">
+      <p>Email: <strong>{{s.email}}</strong></p>
+      <p>Father Name: <strong>{{s.fatherName}}</strong></p>
+      <p>Mother Name: <strong>{{s.motherName}}</strong></p>
+      <p>Date Of Birth: <strong>{{s.dob | date:'MMM,dd,yyyy'}}</strong></p>
+      <p>Gender: <strong>{{s.gander}}</strong></p>
+      <p>Address: <strong>{{s.address}}</strong></p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="primary" routerLink="/admin/fee/{{s.id}}">Fee</button>
+      <button mat-button color="accent" routerLink="/admin/student/{{s.id}}">Update</button>
+      <button mat-button color="primary" (click)="deleteStudent(s.id)">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
